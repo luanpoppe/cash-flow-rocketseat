@@ -10,5 +10,7 @@ internal class ExpensesRepository : IExpensesRepository
     var dbContext = new CashFlowDbContext();
 
     dbContext.Expenses.Add(expense);
+
+    dbContext.SaveChanges();
   }
 }
