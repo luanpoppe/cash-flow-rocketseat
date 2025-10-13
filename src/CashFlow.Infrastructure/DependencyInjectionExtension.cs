@@ -1,7 +1,9 @@
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
+using CashFlow.Domain.Repositories.User;
 using CashFlow.Domain.Security.Cryptography;
 using CashFlow.Infrastructure.DataAccess;
+using CashFlow.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,10 +22,11 @@ public static class DependencyInjectionExtension
 
   private static void AddRepositories(IServiceCollection services)
   {
+    services.AddScoped<IUnityOfWork, UnityOfWork>();
     services.AddScoped<IExpensesReadOnlyRepository, ExpensesRepository>();
     services.AddScoped<IExpensesWriteOnlyRepository, ExpensesRepository>();
     services.AddScoped<IExpensesUpdateOnlyRepository, ExpensesRepository>();
-    services.AddScoped<IUnityOfWork, UnityOfWork>();
+    services.AddScoped<IUserReadOnlyRepository, UserRepository>();
   }
 
   private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
