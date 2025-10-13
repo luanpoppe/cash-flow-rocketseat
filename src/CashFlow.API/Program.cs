@@ -2,6 +2,7 @@ using CashFlow.API.Filters;
 using CashFlow.API.Middleware;
 using CashFlow.Application;
 using CashFlow.Infrastructure;
+using CashFlow.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,5 +31,13 @@ app.UseMiddleware<CultureMiddleware>();
 app.UseHttpsRedirection();
 app.MapControllers();
 
+await MigrateDatabase();
 
 app.Run();
+
+async Task MigrateDatabase()
+{
+    await using var scope = app.Services.CreateAsyncScope();
+
+    await DataBaseMigration.MigrateDatabse(scope.ServiceProvider);
+}
