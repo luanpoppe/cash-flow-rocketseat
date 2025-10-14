@@ -2,7 +2,7 @@ using CashFlow.Domain.Repositories;
 
 namespace CashFlow.Infrastructure.DataAccess;
 
-internal class UnityOfWork : IUnityOfWork
+internal class UnityOfWork : IUnitOfWork
 {
   private readonly CashFlowDbContext _dbContext;
 

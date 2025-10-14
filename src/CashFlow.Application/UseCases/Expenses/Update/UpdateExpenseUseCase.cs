@@ -10,10 +10,10 @@ namespace CashFlow.Application.UseCases.Expenses.Update;
 public class UpdateExpenseUseCase : IUpdateExpenseUseCase
 {
   private readonly IMapper _mapper;
-  private readonly IUnityOfWork _unityOfWord;
+  private readonly IUnitOfWork _unityOfWord;
   private readonly IExpensesUpdateOnlyRepository _repository;
 
-  public UpdateExpenseUseCase(IMapper mapper, IUnityOfWork unityOfWork, IExpensesUpdateOnlyRepository repository)
+  public UpdateExpenseUseCase(IMapper mapper, IUnitOfWork unityOfWork, IExpensesUpdateOnlyRepository repository)
   {
     _mapper = mapper;
     _unityOfWord = unityOfWork;
