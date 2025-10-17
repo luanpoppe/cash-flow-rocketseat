@@ -18,9 +18,9 @@ namespace CashFlow.API.Controllers
             [FromBody] RequestLoginJson request
         )
         {
-            var resopnse = await useCase.Execute(request);
+            var response = await useCase.Execute(request);
 
-            return Ok(Response);
+            return Ok(response);
         }
     }
 }
