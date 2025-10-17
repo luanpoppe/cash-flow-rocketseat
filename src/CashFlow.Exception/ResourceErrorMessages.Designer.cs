@@ -70,7 +70,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a .
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Esse e-mail já está sendo usado..
         /// </summary>
         public static string EMAIL_ALREADY_REGISTERED {
             get {
@@ -93,6 +93,15 @@ namespace CashFlow.Exception {
         public static string EMAIL_INVALID {
             get {
                 return ResourceManager.GetString("EMAIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail e/ou senha inválidos..
+        /// </summary>
+        public static string EMAIL_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("EMAIL_OR_PASSWORD_INVALID", resourceCulture);
             }
         }
         
